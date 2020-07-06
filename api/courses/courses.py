@@ -2,6 +2,7 @@ from rest_framework import generics
 from api.courses.courses_serializers import CourseListSerializer
 from course.models import Course, UserCourses
 from user.models import User
+from rest_framework.response import Response
 
 
 class CourseList(generics.ListCreateAPIView):
@@ -26,6 +27,7 @@ class CourseList(generics.ListCreateAPIView):
                 # Check if record already exists in the user table
             reservation = UserCourses(user=user[0], course=course[0])
             reservation.save()
+            return Response({'status': 'Success'})
 
         elif not user and not course:
             user_data = User(phone_number=phone_number)
@@ -35,7 +37,8 @@ class CourseList(generics.ListCreateAPIView):
             course_data.users.set([user_data])
 
             reservation = UserCourses(user=user_data, course=course_data)
-            reservation.save()
+            # reservation.save()
+            return Response({'status': 'Success'})
 
         elif course and not user:
             # if the phone number does not exist in the database yet
@@ -43,7 +46,8 @@ class CourseList(generics.ListCreateAPIView):
             user_data.save()
 
             reservation = UserCourses(user=user_data, course=course[0])
-            reservation.save()
+            # reservation.save()
+            return Response({'status': 'Success'})
 
         elif user and not course:
             # if the course does not exist in the database yet
@@ -52,5 +56,6 @@ class CourseList(generics.ListCreateAPIView):
             course_data.users.set([user[0]])
 
             reservation = UserCourses(user=user[0], course=course_data)
-            reservation.save()
+            # reservation.save()
+            return Response({'status': 'Success'})
 
