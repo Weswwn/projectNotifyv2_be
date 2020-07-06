@@ -23,6 +23,7 @@ class CourseList(generics.ListCreateAPIView):
 
         if course and user:
             # if the course already exists in the database
+                # Check if record already exists in the user table
             reservation = UserCourses(user=user[0], course=course[0])
             reservation.save()
 
@@ -31,9 +32,9 @@ class CourseList(generics.ListCreateAPIView):
             user_data.save()
             course_data = Course(subject_code=subject_code, subject_number=subject_number, section_number=section_number)
             course_data.save()
-            course_data.users.set(user_data)
+            course_data.users.set([user_data])
 
-            reservation = UserCourses(user=user[0], course=course[0])
+            reservation = UserCourses(user=user_data, course=course_data)
             reservation.save()
 
         elif course and not user:
@@ -41,15 +42,15 @@ class CourseList(generics.ListCreateAPIView):
             user_data = User(phone_number=phone_number)
             user_data.save()
 
-            reservation = UserCourses(user=user_data.id, course=course[0].id)
+            reservation = UserCourses(user=user_data, course=course[0])
             reservation.save()
 
         elif user and not course:
             # if the course does not exist in the database yet
             course_data = Course(subject_code=subject_code, subject_number=subject_number, section_number=section_number)
             course_data.save()
-            course_data.users.set(user)
+            course_data.users.set([user[0]])
 
-            reservation = UserCourses(user=user[0].id, course=course_data.id)
+            reservation = UserCourses(user=user[0], course=course_data)
             reservation.save()
 
