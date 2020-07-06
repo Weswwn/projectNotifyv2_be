@@ -11,3 +11,10 @@ class CourseList(generics.ListCreateAPIView):
     def get_queryset(self):
         q_set = Course.objects.all()
         return q_set
+
+    def post(self, request, *args, **kwargs):
+        subjectCode = request.data['subjectCode']
+        subjectNumber = request.data['subjectNumber']
+        sectionNumber = request.data['sectionNumber']
+        user = request.data['users']
+        course = Course.objects.filter()

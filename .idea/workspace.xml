@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6a4bee2-3766-402c-b6f4-3a34b822de65" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/courses/courses.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/courses/courses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/courses/courses_serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/courses/courses_serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/course/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectNotifyv2_be/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectNotifyv2_be/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectNotifyv2_be/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectNotifyv2_be/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -46,13 +45,35 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="projectNotifyv2_be" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -76,31 +97,7 @@
       <option name="port" value="8000" />
       <option name="host" value="" />
       <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="http://127.0.0.1:8000/" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="Python.DjangoServer" factoryName="Django server">
-      <module name="projectNotifyv2_be" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="settings" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/local/bin/python3.8" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="http://127.0.0.1:8000/" />
+      <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
@@ -118,7 +115,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1593999084313</updated>
-      <workItem from="1593999085398" duration="3643000" />
+      <workItem from="1593999085398" duration="8949000" />
     </task>
     <servers />
   </component>
@@ -126,69 +123,86 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2216" y="-140" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594002118645">
+    <state x="2044" y="-140" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594007362123">
       <screen x="1792" y="-330" width="1920" height="1057" />
     </state>
-    <state x="2216" y="-140" key="#com.intellij.execution.impl.EditConfigurationsDialog/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594002118645" />
+    <state x="2044" y="-140" key="#com.intellij.execution.impl.EditConfigurationsDialog/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594007362123" />
     <state x="2216" y="-140" key="#com.intellij.execution.impl.EditConfigurationsDialog/1792.-330.1920.1057/0.23.1792.1016@1792.-330.1920.1057" timestamp="1594001883775" />
-    <state x="2617" y="-65" key="EnvironmentVariablesDialog" timestamp="1594002116528">
+    <state x="2617" y="-65" width="785" height="605" key="EnvironmentVariablesDialog" timestamp="1594006764373">
       <screen x="1792" y="-330" width="1920" height="1057" />
     </state>
-    <state x="2617" y="-65" key="EnvironmentVariablesDialog/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594002116528" />
-    <state width="939" height="290" key="GridCell.Tab.0.bottom" timestamp="1594002712772">
-      <screen x="1792" y="-330" width="1920" height="1057" />
+    <state x="2617" y="-65" width="785" height="605" key="EnvironmentVariablesDialog/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594006764373" />
+    <state width="1494" height="358" key="GridCell.Tab.0.bottom" timestamp="1594010622178">
+      <screen x="0" y="23" width="1536" height="864" />
     </state>
-    <state width="939" height="290" key="GridCell.Tab.0.bottom/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594002712772" />
+    <state width="1494" height="358" key="GridCell.Tab.0.bottom/0.23.1536.864@0.23.1536.864" timestamp="1594010622178" />
+    <state width="1878" height="358" key="GridCell.Tab.0.bottom/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594008326820" />
     <state width="1878" height="358" key="GridCell.Tab.0.bottom/1792.-330.1920.1057/0.23.1792.1016@1792.-330.1920.1057" timestamp="1594001874121" />
-    <state width="939" height="290" key="GridCell.Tab.0.center" timestamp="1594002712771">
-      <screen x="1792" y="-330" width="1920" height="1057" />
+    <state width="1494" height="358" key="GridCell.Tab.0.center" timestamp="1594010622178">
+      <screen x="0" y="23" width="1536" height="864" />
     </state>
-    <state width="939" height="290" key="GridCell.Tab.0.center/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594002712771" />
+    <state width="1494" height="358" key="GridCell.Tab.0.center/0.23.1536.864@0.23.1536.864" timestamp="1594010622178" />
+    <state width="1878" height="358" key="GridCell.Tab.0.center/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594008326820" />
     <state width="1878" height="358" key="GridCell.Tab.0.center/1792.-330.1920.1057/0.23.1792.1016@1792.-330.1920.1057" timestamp="1594001874121" />
-    <state width="939" height="290" key="GridCell.Tab.0.left" timestamp="1594002712771">
-      <screen x="1792" y="-330" width="1920" height="1057" />
+    <state width="1494" height="358" key="GridCell.Tab.0.left" timestamp="1594010622177">
+      <screen x="0" y="23" width="1536" height="864" />
     </state>
-    <state width="939" height="290" key="GridCell.Tab.0.left/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594002712771" />
+    <state width="1494" height="358" key="GridCell.Tab.0.left/0.23.1536.864@0.23.1536.864" timestamp="1594010622177" />
+    <state width="1878" height="358" key="GridCell.Tab.0.left/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594008326819" />
     <state width="1878" height="358" key="GridCell.Tab.0.left/1792.-330.1920.1057/0.23.1792.1016@1792.-330.1920.1057" timestamp="1594001874121" />
-    <state width="939" height="290" key="GridCell.Tab.0.right" timestamp="1594002712772">
-      <screen x="1792" y="-330" width="1920" height="1057" />
+    <state width="1494" height="358" key="GridCell.Tab.0.right" timestamp="1594010622178">
+      <screen x="0" y="23" width="1536" height="864" />
     </state>
-    <state width="939" height="290" key="GridCell.Tab.0.right/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594002712772" />
+    <state width="1494" height="358" key="GridCell.Tab.0.right/0.23.1536.864@0.23.1536.864" timestamp="1594010622178" />
+    <state width="1878" height="358" key="GridCell.Tab.0.right/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594008326820" />
     <state width="1878" height="358" key="GridCell.Tab.0.right/1792.-330.1920.1057/0.23.1792.1016@1792.-330.1920.1057" timestamp="1594001874121" />
-    <state width="939" height="358" key="GridCell.Tab.1.bottom" timestamp="1594002711933">
-      <screen x="1792" y="-330" width="1920" height="1057" />
+    <state width="1494" height="358" key="GridCell.Tab.1.bottom" timestamp="1594010622179">
+      <screen x="0" y="23" width="1536" height="864" />
     </state>
-    <state width="939" height="358" key="GridCell.Tab.1.bottom/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594002711933" />
+    <state width="1494" height="358" key="GridCell.Tab.1.bottom/0.23.1536.864@0.23.1536.864" timestamp="1594010622179" />
+    <state width="1878" height="358" key="GridCell.Tab.1.bottom/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594008326821" />
     <state width="1878" height="358" key="GridCell.Tab.1.bottom/1792.-330.1920.1057/0.23.1792.1016@1792.-330.1920.1057" timestamp="1594001874055" />
-    <state width="939" height="358" key="GridCell.Tab.1.center" timestamp="1594002711932">
-      <screen x="1792" y="-330" width="1920" height="1057" />
+    <state width="1494" height="358" key="GridCell.Tab.1.center" timestamp="1594010622178">
+      <screen x="0" y="23" width="1536" height="864" />
     </state>
-    <state width="939" height="358" key="GridCell.Tab.1.center/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594002711932" />
+    <state width="1494" height="358" key="GridCell.Tab.1.center/0.23.1536.864@0.23.1536.864" timestamp="1594010622178" />
+    <state width="1878" height="358" key="GridCell.Tab.1.center/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594008326821" />
     <state width="1878" height="358" key="GridCell.Tab.1.center/1792.-330.1920.1057/0.23.1792.1016@1792.-330.1920.1057" timestamp="1594001874055" />
-    <state width="939" height="358" key="GridCell.Tab.1.left" timestamp="1594002711932">
-      <screen x="1792" y="-330" width="1920" height="1057" />
+    <state width="1494" height="358" key="GridCell.Tab.1.left" timestamp="1594010622178">
+      <screen x="0" y="23" width="1536" height="864" />
     </state>
-    <state width="939" height="358" key="GridCell.Tab.1.left/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594002711932" />
+    <state width="1494" height="358" key="GridCell.Tab.1.left/0.23.1536.864@0.23.1536.864" timestamp="1594010622178" />
+    <state width="1878" height="358" key="GridCell.Tab.1.left/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594008326821" />
     <state width="1878" height="358" key="GridCell.Tab.1.left/1792.-330.1920.1057/0.23.1792.1016@1792.-330.1920.1057" timestamp="1594001874055" />
-    <state width="939" height="358" key="GridCell.Tab.1.right" timestamp="1594002711933">
-      <screen x="1792" y="-330" width="1920" height="1057" />
+    <state width="1494" height="358" key="GridCell.Tab.1.right" timestamp="1594010622178">
+      <screen x="0" y="23" width="1536" height="864" />
     </state>
-    <state width="939" height="358" key="GridCell.Tab.1.right/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594002711933" />
+    <state width="1494" height="358" key="GridCell.Tab.1.right/0.23.1536.864@0.23.1536.864" timestamp="1594010622178" />
+    <state width="1878" height="358" key="GridCell.Tab.1.right/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594008326821" />
     <state width="1878" height="358" key="GridCell.Tab.1.right/1792.-330.1920.1057/0.23.1792.1016@1792.-330.1920.1057" timestamp="1594001874055" />
     <state x="2260" y="-163" key="SettingsEditor" timestamp="1594000649430">
       <screen x="1792" y="-330" width="1920" height="1057" />
     </state>
     <state x="2260" y="-163" key="SettingsEditor/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594000649430" />
+    <state x="2555" y="119" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594003792888">
+      <screen x="1792" y="-330" width="1920" height="1057" />
+    </state>
+    <state x="2555" y="119" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594003792888" />
+    <state x="2303" y="-66" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1594007239631">
+      <screen x="1792" y="-330" width="1920" height="1057" />
+    </state>
+    <state x="2303" y="-66" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594007239631" />
+    <state x="2458" y="-45" width="686" height="486" key="find.popup" timestamp="1594007138097">
+      <screen x="1792" y="-330" width="1920" height="1057" />
+    </state>
+    <state x="2458" y="-45" width="686" height="486" key="find.popup/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594007138097" />
+    <state x="2417" y="-95" width="670" height="676" key="search.everywhere.popup" timestamp="1594007114973">
+      <screen x="1792" y="-330" width="1920" height="1057" />
+    </state>
+    <state x="2417" y="-95" width="670" height="676" key="search.everywhere.popup/1792.-330.1920.1057/0.23.1792.1014@1792.-330.1920.1057" timestamp="1594007114973" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/api/courses/courses.py</url>
-          <line>5</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/projectNotifyv2_be$manage.coverage" NAME="manage Coverage Results" MODIFIED="1594007363309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/projectNotifyv2_be$test.coverage" NAME="test Coverage Results" MODIFIED="1594007246138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
