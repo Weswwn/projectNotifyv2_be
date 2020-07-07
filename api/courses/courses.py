@@ -25,6 +25,9 @@ class CourseList(generics.ListCreateAPIView):
         if course and user:
             # if the course already exists in the database
                 # Check if record already exists in the user table
+            unique_reservation = UserCourses.objects.filter(user=user[0].id, course=course[0].id)
+            # if unique_reservation:
+            #     return Response({'status': 'You have already registered for this course'})
             reservation = UserCourses(user=user[0], course=course[0])
             reservation.save()
             return Response({'status': 'Success'})
@@ -37,7 +40,7 @@ class CourseList(generics.ListCreateAPIView):
             course_data.users.set([user_data])
 
             reservation = UserCourses(user=user_data, course=course_data)
-            # reservation.save()
+            reservation.save()
             return Response({'status': 'Success'})
 
         elif course and not user:
@@ -46,7 +49,7 @@ class CourseList(generics.ListCreateAPIView):
             user_data.save()
 
             reservation = UserCourses(user=user_data, course=course[0])
-            # reservation.save()
+            reservation.save()
             return Response({'status': 'Success'})
 
         elif user and not course:
