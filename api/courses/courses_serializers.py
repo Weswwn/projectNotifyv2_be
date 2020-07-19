@@ -5,8 +5,8 @@ class CourseListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = (
-            'subjectCode',
-            'subjectNumber',
-            'sectionNumber',
+            'subject_code',
+            'subject_number',
+            'section_number',
             'users'
         )

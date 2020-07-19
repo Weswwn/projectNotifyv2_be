@@ -13,7 +13,7 @@ class CourseList(generics.ListCreateAPIView):
         return CourseListSerializer
 
     def get_queryset(self):
-        q_set = Course.objects.all()
+        q_set = Course.users.through.objects.all()
         return q_set
 
     def post(self, request, *args, **kwargs):
@@ -26,12 +26,14 @@ class CourseList(generics.ListCreateAPIView):
 
         url = f"https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-section&dept={subject_code}&course={subject_number}&section={section_number}"
         response = get(url)
-
         html_soup = BeautifulSoup(response.text, 'html.parser')
         type(html_soup)
         general_seat_div = html_soup.find_all(string='General Seats Remaining:')
+
+        if len(general_seat_div) == 0:
+            return Response({'status': 'The course you requested is not valid'})
+
         general_seat_count = general_seat_div[0].findParent().findNextSibling().text
-        print('general_seat_count', general_seat_count)
 
         if general_seat_count == '0':
             if course and user:
