@@ -1,5 +1,5 @@
 from rest_framework import generics
-from api.courses.courses_serializers import CourseListSerializer
+from api.courses.courses_serializers import CourseListSerializer, UserCoursesSerializer
 from course.models import Course, UserCourses
 from user.models import User
 from rest_framework.response import Response
@@ -10,7 +10,11 @@ from bs4 import BeautifulSoup
 class CourseList(generics.ListCreateAPIView):
     model = Course
     def get_serializer_class(self):
-        return CourseListSerializer
+        print(self.request.method)
+        if self.request.method == 'GET':
+            return UserCoursesSerializer
+        else:
+            return CourseListSerializer
 
     def get_queryset(self):
         q_set = Course.users.through.objects.all()
