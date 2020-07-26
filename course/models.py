@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Course(models.Model):
     subject_code = models.CharField(max_length=4, blank=False, null=False)
     subject_number = models.CharField(max_length=4, blank=False, null=False)

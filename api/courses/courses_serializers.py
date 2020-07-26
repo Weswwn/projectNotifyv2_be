@@ -8,7 +8,7 @@ class CourseListSerializer(serializers.ModelSerializer):
             'subject_code',
             'subject_number',
             'section_number',
-            'users'
+            # 'users'
         )
 
 class UserCoursesSerializer(serializers.ModelSerializer):

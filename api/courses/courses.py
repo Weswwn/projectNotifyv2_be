@@ -12,12 +12,12 @@ class CourseList(generics.ListCreateAPIView):
     def get_serializer_class(self):
         print(self.request.method)
         if self.request.method == 'GET':
-            return UserCoursesSerializer
-        else:
             return CourseListSerializer
+        else:
+            return UserCoursesSerializer
 
     def get_queryset(self):
-        q_set = Course.users.through.objects.all()
+        q_set = Course.objects.all();
         return q_set
 
     def post(self, request, *args, **kwargs):
