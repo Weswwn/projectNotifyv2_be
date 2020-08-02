@@ -5,6 +5,7 @@ from datetime import timedelta
 
 import os
 import django
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'projectNotifyv2_be.settings')
 
 app = Celery('projectNotifyv2_be')

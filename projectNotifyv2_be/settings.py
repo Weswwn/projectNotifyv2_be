@@ -51,10 +51,11 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
+
 CELERY_BEAT_SCHEDULE = {
     'task-first': {
-        'task': 'automated.tasks.hello_world',
-        'schedule': timedelta(seconds=1)
+        'task': 'automated.tasks.check_courses',
+        'schedule': timedelta(seconds=10)
     },
 }
 
