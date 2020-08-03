@@ -55,7 +55,7 @@ CELERY_TIMEZONE = 'UTC'
 CELERY_BEAT_SCHEDULE = {
     'task-first': {
         'task': 'automated.tasks.check_courses',
-        'schedule': timedelta(seconds=10)
+        'schedule': timedelta(seconds=20)
     },
 }
 
