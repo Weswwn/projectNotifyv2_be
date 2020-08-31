@@ -41,10 +41,11 @@ class CourseList(generics.ListCreateAPIView):
 
         if general_seat_count == '0':
             if course and user:
+                print(course[0], user[0])
                 # if the course already exists in the database
                 # Check if record already exists in the user table
 
-                unique_reservation = UserCourses.objects.filter(user=user[0].id, course=course[0].id)
+                unique_reservation = UserCourses.objects.filter(user=user[0].id, course=course[0].id, did_text_send=False)
                 if unique_reservation:
                     return Response({'status': 'You have already registered for this course'})
 
@@ -83,3 +84,20 @@ class CourseList(generics.ListCreateAPIView):
                 return Response({'status': 'Success'})
 
         return Response({'status': 'The course you requested is not full'})
+
+
+class UserCourse(generics.ListCreateAPIView):
+
+    def post(self, request, *args, **kwargs):
+        print('THIS IS A BIG ASS TEST', request, request.data)
+        sms_sid = request.data.get('MessageSid')
+        sms_status = request.data.get('MessageStatus')
+        user_course_record = UserCourses.objects.get(sms_message_sid=sms_sid)
+
+        if sms_status == 'sent' or 'delivered':
+            user_course_record.did_text_send = True
+        else:
+            user_course_record.did_text_send = False
+        user_course_record.save(update_fields=['did_text_send'])
+
+        return Response({'status': 'complete'})

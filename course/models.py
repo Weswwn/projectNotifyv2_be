@@ -17,3 +17,9 @@ class Course(models.Model):
 class UserCourses(models.Model):
     user = models.ForeignKey('user.User', on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    paid = models.BooleanField(default=False)
+    did_text_send = models.BooleanField(default=False)
+    sms_message_sid = models.CharField(max_length=40, null=True)
+
+    def __str__(self):
+        return self.sms_message_sid
