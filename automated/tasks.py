@@ -31,12 +31,11 @@ def check_courses(self):
         At this point, need to add another course validation check. If a course is valid during form input,
         but changes later, this portion of the code will fail.
             ------ IMPORTANT ------ """
+        if len(general_seat_div) > 0:
+            general_seat_count = general_seat_div[0].findParent().findNextSibling().text
 
-        print(general_seat_div, course)
-        general_seat_count = general_seat_div[0].findParent().findNextSibling().text
-
-        if int(general_seat_count) > 0:
-            notify_users(course['course'], subject_code, subject_number, section_number)
+            if int(general_seat_count) > 0:
+                notify_users(course['course'], subject_code, subject_number, section_number)
 
 
 def notify_users(course_id, subject_code, subject_number, section_number):

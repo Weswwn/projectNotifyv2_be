@@ -1,10 +1,16 @@
-from rest_framework import generics
+from rest_framework import generics, status
 from api.courses.courses_serializers import CourseListSerializer, UserCoursesSerializer
 from course.models import Course, UserCourses
 from user.models import User
+
 from rest_framework.response import Response
 from requests import get
+
 from bs4 import BeautifulSoup
+
+import phonenumbers
+from phonenumbers import carrier
+from phonenumbers.phonenumberutil import number_type
 
 
 class CourseList(generics.ListCreateAPIView):
@@ -20,11 +26,18 @@ class CourseList(generics.ListCreateAPIView):
         q_set = Course.objects.all();
         return q_set
 
+
     def post(self, request, *args, **kwargs):
         subject_code = request.data['subjectCode']
         subject_number = request.data['subjectNumber']
         section_number = request.data['sectionNumber']
         phone_number = request.data['users']
+
+        isValid = validate_phonenumber(phone_number)
+        if isValid == False:
+            return Response({'status': 'failed', 'msg': 'Something went wrong with your phone number'},
+                     status=status.HTTP_404_NOT_FOUND)
+
         course = Course.objects.filter(subject_code=subject_code, subject_number=subject_number, section_number=section_number)
         user = User.objects.filter(phone_number=phone_number)
 
@@ -35,23 +48,23 @@ class CourseList(generics.ListCreateAPIView):
         general_seat_div = html_soup.find_all(string='General Seats Remaining:')
 
         if len(general_seat_div) == 0:
-            return Response({'status': 'The course you requested is not valid'})
+            return Response({'status': 'failed', 'msg': 'The course you requested is not valid'}, status=status.HTTP_404_NOT_FOUND)
 
         general_seat_count = general_seat_div[0].findParent().findNextSibling().text
 
         if general_seat_count == '0':
             if course and user:
-                print(course[0], user[0])
-                # if the course already exists in the database
+                print(course, user)
+                # if the course and user already exist in the database
                 # Check if record already exists in the user table
 
                 unique_reservation = UserCourses.objects.filter(user=user[0].id, course=course[0].id, did_text_send=False)
                 if unique_reservation:
-                    return Response({'status': 'You have already registered for this course'})
+                    return Response({'status': 'failed', 'msg': 'You have already registered for this course'}, status=status.HTTP_404_NOT_FOUND)
 
                 reservation = UserCourses(user=user[0], course=course[0])
                 reservation.save()
-                return Response({'status': 'Success'})
+                return Response({'status': 'success', 'msg': 'You have been registered'})
 
             elif not user and not course:
                 user_data = User(phone_number=phone_number)
@@ -62,7 +75,7 @@ class CourseList(generics.ListCreateAPIView):
 
                 reservation = UserCourses(user=user_data, course=course_data)
                 # reservation.save()
-                return Response({'status': 'Success'})
+                return Response({'status': 'success', 'msg': 'You have been registered'})
 
             elif course and not user:
                 # if the phone number does not exist in the database yet
@@ -71,7 +84,7 @@ class CourseList(generics.ListCreateAPIView):
 
                 reservation = UserCourses(user=user_data, course=course[0])
                 reservation.save()
-                return Response({'status': 'Success'})
+                return Response({'status': 'success', 'msg': 'You have been registered'})
 
             elif user and not course:
                 # if the course does not exist in the database yet
@@ -81,9 +94,9 @@ class CourseList(generics.ListCreateAPIView):
 
                 reservation = UserCourses(user=user[0], course=course_data)
                 # reservation.save()
-                return Response({'status': 'Success'})
+                return Response({'status': 'success', 'msg': 'You have been registered'})
 
-        return Response({'status': 'The course you requested is not full'})
+        return Response({'status': 'failed', 'msg': 'The course you requested is not full'}, status=status.HTTP_404_NOT_FOUND)
 
 
 class UserCourse(generics.ListCreateAPIView):
@@ -101,3 +114,14 @@ class UserCourse(generics.ListCreateAPIView):
         user_course_record.save(update_fields=['did_text_send'])
 
         return Response({'status': 'complete'})
+
+
+def validate_phonenumber(phone_number):
+    print('phone_number:', phone_number)
+    try:
+        isValid = phonenumbers.is_possible_number(phonenumbers.parse(phone_number, None))
+        print(phonenumbers.parse(phone_number, None), phonenumbers.is_possible_number(phonenumbers.parse(phone_number, None)))
+    except Exception as e:
+        return False
+
+    return isValid
