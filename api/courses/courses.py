@@ -33,8 +33,8 @@ class CourseList(generics.ListCreateAPIView):
         section_number = request.data['sectionNumber']
         phone_number = request.data['users']
 
-        isValid = validate_phonenumber(phone_number)
-        if isValid == False:
+        is_valid = validate_phonenumber(phone_number)
+        if is_valid is False:
             return Response({'status': 'failed', 'msg': 'Something went wrong with your phone number'},
                      status=status.HTTP_404_NOT_FOUND)
 

@@ -29,12 +29,12 @@ def check_courses(self):
 
         """ ------ IMPORTANT ------
         At this point, need to add another course validation check. If a course is valid during form input,
-        but changes later, this portion of the code will fail.
+        but changes later, this portion of the code will now catch this issue.
             ------ IMPORTANT ------ """
         if len(general_seat_div) > 0:
             general_seat_count = general_seat_div[0].findParent().findNextSibling().text
 
-            if int(general_seat_count) > 0:
+            if int(general_seat_count) >= 0:
                 notify_users(course['course'], subject_code, subject_number, section_number)
 
 
@@ -46,19 +46,25 @@ def notify_users(course_id, subject_code, subject_number, section_number):
     # Notify each user that made registrations for the course that has an open spot
     for record in user_courses_list:
         print(record['id'])
-        phone_number = User.objects.filter(id=record['user_id'])
+
+        #Ran into an issue here where the result of the .get didn't provide the value. Look into this
+        phone_number_obj = User.objects.values('phone_number').get(id=record['user_id'])
+        phone_number = phone_number_obj['phone_number']
         send_sms_to_user(client, phone_number, subject_code, subject_number, section_number, record['id'])
 
 
 def send_sms_to_user(client, phone_number, subject_code, subject_number, section_number, record_id):
-    message = client.messages \
-        .create(
-            body=f"Hi! This is Project Notify. A spot for {subject_code} {subject_number} {section_number} opened up! Click the link to register: https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-section&dept={subject_code}&course={subject_number}&section={section_number}",
-            from_="2017293373",
-            #15005550006
-            status_callback='https://83cd00628ae6.ngrok.io/api/course/usercourse/',
-            to=phone_number
-    )
-    user_courses_record = UserCourses.objects.get(id=record_id)
-    user_courses_record.sms_message_sid = message.sid
-    user_courses_record.save(update_fields=['sms_message_sid'])
+    try:
+        message = client.messages \
+            .create(
+                body=f"Hi! This is Project Notify. A spot for {subject_code} {subject_number} {section_number} opened up! Click the link to register: https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-section&dept={subject_code}&course={subject_number}&section={section_number}",
+                from_="2017293373",
+                #15005550006
+                status_callback='https://83cd00628ae6.ngrok.io/api/course/usercourse/',
+                to=phone_number
+        )
+        user_courses_record = UserCourses.objects.get(id=record_id)
+        user_courses_record.sms_message_sid = message.sid
+        user_courses_record.save(update_fields=['sms_message_sid'])
+    except Exception as e:
+        print('Sending text message has failed')
