@@ -11,7 +11,7 @@ import asyncio
 @app.task(bind=True)
 def check_courses(self):
     list_of_course_id = UserCourses.objects.values('course').filter(did_text_send=False).distinct()
-    print(list_of_course_id)
+
     for course in list_of_course_id:
         course_obj = Course.objects.get(id=course['course'])
 
@@ -34,7 +34,7 @@ def check_courses(self):
         if len(general_seat_div) > 0:
             general_seat_count = general_seat_div[0].findParent().findNextSibling().text
 
-            if int(general_seat_count) >= 0:
+            if int(general_seat_count) > 0:
                 notify_users(course['course'], subject_code, subject_number, section_number)
 
 
@@ -45,7 +45,6 @@ def notify_users(course_id, subject_code, subject_number, section_number):
 
     # Notify each user that made registrations for the course that has an open spot
     for record in user_courses_list:
-        print(record['id'])
 
         #Ran into an issue here where the result of the .get didn't provide the value. Look into this
         phone_number_obj = User.objects.values('phone_number').get(id=record['user_id'])
