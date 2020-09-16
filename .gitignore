@@ -1,3 +1,5 @@
 .idea
 ./workspace.xml
 projectNotifyv2_be/secret.py
+.env
+projectNotifyv2_be/settings_dev.py

@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=projectNotifyDB
+      - POSTGRES_USER=wwen
+      - POSTGRES_PASSWORD=test
+  redis:
+    image: "redis:alpine"
+  web:
+#      build: .
+    image: weswwn/project-notify:1.1
+    command: python3 manage.py runserver 0.0.0.0:8080
+#    volumes:
+#      - .:/code
+    ports:
+      - "8000:8080"
+    depends_on:
+      - db
+      - redis
+  celery:
+#      build: .
+    image: weswwn/project-notify:1.1
+    command: celery -A projectNotifyv2_be worker -l info
+#    volumes:
+#      - .:/code
+    depends_on:
+      - db
+      - redis
+  celery-beat:
+#      build: .
+    image: weswwn/project-notify:1.1
+    environment:
+      - POSTGRES_DB=projectNotifyDB
+      - POSTGRES_USER=wwen
+      - POSTGRES_PASSWORD=test
+    command: bash -c "python3 manage.py migrate && celery -A projectNotifyv2_be beat -l info --pidfile= --scheduler django_celery_beat.schedulers:DatabaseScheduler"
+#    volumes:
+#      - .:/code
+    depends_on:
+      - db
+      - redis

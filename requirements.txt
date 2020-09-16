@@ -1,0 +1,14 @@
+Django>=3.0,<4.0
+psycopg2-binary>=2.8
+celery
+djangorestframework
+phonenumbers
+django-phonenumber-field
+django-celery-beat
+requests
+beautifulsoup4
+twilio
+redis
+django-cors-headers
+python-dotenv
+gunicorn >= 20.0.4

@@ -12,20 +12,23 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from datetime import timedelta
+from projectNotifyv2_be import settings_dev
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'pp_agsaq5!jlgt%*25wp+t!ts8)^g=2gdc0*amw8fr%4iopq+f'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
+# ***** NEED TO CHANGE BASED OFF OF WHAT FE URL IS *****
 ALLOWED_HOSTS = ['52979ba17a1d.ngrok.io', 'localhost']
 
 
@@ -46,8 +49,8 @@ INSTALLED_APPS = [
     'user',
 ]
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_BROKER_URL = 'redis://redis:6379'
+CELERY_RESULT_BACKEND = 'redis://redis:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
@@ -78,9 +81,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
-
+# ***** NEED TO CHANGE BASED OFF OF WHAT FE URL IS *****
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000/',
+    os.environ.get('CORS_FE_URL'),
 ]
 
 ROOT_URLCONF = 'projectNotifyv2_be.urls'
@@ -112,7 +115,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'projectNotifyDB',
         'USER': 'wwen',
-        'HOST': '127.0.0.1',
+        'HOST': os.environ.get('DBHOST'),
+        'PASSWORD': 'test',
         'PORT': '5432',
     }
 }
@@ -155,3 +159,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+if os.environ.get('DJANGO_DEVELOPMENT'):
+    print('This is development settings')
+    from projectNotifyv2_be.settings_dev import ALLOWED_HOSTS, DATABASES, DEBUG, ALLOWED_HOSTS, CORS_ORIGIN_WHITELIST
