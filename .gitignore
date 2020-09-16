@@ -3,3 +3,4 @@
 projectNotifyv2_be/secret.py
 .env
 projectNotifyv2_be/settings_dev.py
+projectNotifyv2_be/.env

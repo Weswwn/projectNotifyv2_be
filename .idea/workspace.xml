@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6a4bee2-3766-402c-b6f4-3a34b822de65" name="Default Changelist" comment="``">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectNotifyv2_be/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectNotifyv2_be/settings_dev.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/celerybeat.pid" beforeDir="false" afterPath="$PROJECT_DIR$/celerybeat.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectNotifyv2_be/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectNotifyv2_be/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +216,7 @@
       <workItem from="1600044868272" duration="488000" />
       <workItem from="1600045576902" duration="9053000" />
       <workItem from="1600141628988" duration="2375000" />
-      <workItem from="1600230938738" duration="3168000" />
+      <workItem from="1600230938738" duration="3287000" />
     </task>
     <servers />
   </component>
