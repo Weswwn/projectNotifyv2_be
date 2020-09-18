@@ -12,3 +12,4 @@ redis
 django-cors-headers
 python-dotenv
 gunicorn >= 20.0.4
+letsencrypt

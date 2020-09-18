@@ -26,10 +26,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ***** NEED TO CHANGE BASED OFF OF WHAT FE URL IS *****
-ALLOWED_HOSTS = ['52979ba17a1d.ngrok.io', 'localhost']
+ALLOWED_HOSTS = ['localhost', '23.239.5.219', '127.0.0.1']
 
 
 # Application definition
@@ -84,7 +84,12 @@ MIDDLEWARE = [
 # ***** NEED TO CHANGE BASED OFF OF WHAT FE URL IS *****
 CORS_ORIGIN_WHITELIST = [
     os.environ.get('CORS_FE_URL'),
+    'localhost',
+    '127.0.0.1',
+    'https://5f643cb460ac361d3ca5e81b--sharp-easley-ffdfe9.netlify.app'
 ]
+
+# SECURE_SSL_REDIRECT = True
 
 ROOT_URLCONF = 'projectNotifyv2_be.urls'
 
