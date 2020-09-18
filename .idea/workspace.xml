@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6a4bee2-3766-402c-b6f4-3a34b822de65" name="Default Changelist" comment="``">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectNotifyv2_be/.env" beforeDir="false" afterPath="$PROJECT_DIR$/projectNotifyv2_be/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectNotifyv2_be/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectNotifyv2_be/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +260,7 @@
       <workItem from="1600045576902" duration="9053000" />
       <workItem from="1600141628988" duration="2375000" />
       <workItem from="1600230938738" duration="5239000" />
-      <workItem from="1600314962928" duration="9776000" />
+      <workItem from="1600314962928" duration="9948000" />
     </task>
     <servers />
   </component>
