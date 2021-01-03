@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 # ***** NEED TO CHANGE BASED OFF OF WHAT FE URL IS *****
-ALLOWED_HOSTS = ['localhost', '23.239.5.219', '127.0.0.1, api.ubccoursetracker.com']
+ALLOWED_HOSTS = ['localhost', '23.239.5.219', '127.0.0.1', 'api.ubccoursetracker.com']
 
 
 # Application definition

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6a4bee2-3766-402c-b6f4-3a34b822de65" name="Default Changelist" comment="``">
-      <change afterPath="$PROJECT_DIR$/data/nginx/app.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectNotifyv2_be/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectNotifyv2_be/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -270,7 +268,7 @@
       <workItem from="1600827895668" duration="8922000" />
       <workItem from="1600910765624" duration="2613000" />
       <workItem from="1600926221022" duration="2131000" />
-      <workItem from="1609564965752" duration="9767000" />
+      <workItem from="1609564965752" duration="10944000" />
     </task>
     <servers />
   </component>
