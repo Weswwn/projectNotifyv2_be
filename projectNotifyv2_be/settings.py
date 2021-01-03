@@ -86,7 +86,8 @@ CORS_ORIGIN_WHITELIST = [
     os.environ.get('CORS_FE_URL'),
     'localhost',
     '127.0.0.1',
-    'https://5f643cb460ac361d3ca5e81b--sharp-easley-ffdfe9.netlify.app'
+    'https://5f643cb460ac361d3ca5e81b--sharp-easley-ffdfe9.netlify.app',
+    'www.ubccoursetracker.com',
 ]
 
 # SECURE_SSL_REDIRECT = True
