@@ -117,7 +117,6 @@ class UserCourse(generics.ListCreateAPIView):
 
 
 def validate_phonenumber(phone_number):
-    print('phone_number:', phone_number)
     try:
         isValid = phonenumbers.is_possible_number(phonenumbers.parse(phone_number, None))
         print(phonenumbers.parse(phone_number, None), phonenumbers.is_possible_number(phonenumbers.parse(phone_number, None)))

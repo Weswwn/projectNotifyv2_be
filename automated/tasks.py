@@ -59,7 +59,7 @@ def send_sms_to_user(client, phone_number, subject_code, subject_number, section
                 body=f"Hi! This is Project Notify. A spot for {subject_code} {subject_number} {section_number} opened up! Click the link to register: https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-section&dept={subject_code}&course={subject_number}&section={section_number}",
                 from_="2017293373",
                 #15005550006
-                status_callback='https://83cd00628ae6.ngrok.io/api/course/usercourse/',
+                status_callback='https://api.ubccourseinfo.com/api/course/usercourse/',
                 to=phone_number
         )
         user_courses_record = UserCourses.objects.get(id=record_id)
