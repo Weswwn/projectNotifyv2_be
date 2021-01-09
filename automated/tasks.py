@@ -33,6 +33,7 @@ def check_courses(self):
             ------ IMPORTANT ------ """
         if len(general_seat_div) > 0:
             general_seat_count = general_seat_div[0].findParent().findNextSibling().text
+            print(general_seat_count)
 
             if int(general_seat_count) > 0:
                 notify_users(course['course'], subject_code, subject_number, section_number)

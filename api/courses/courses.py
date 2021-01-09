@@ -54,7 +54,6 @@ class CourseList(generics.ListCreateAPIView):
 
         if general_seat_count == '0':
             if course and user:
-                print(course, user)
                 # if the course and user already exist in the database
                 # Check if record already exists in the user table
 
@@ -99,10 +98,9 @@ class CourseList(generics.ListCreateAPIView):
         return Response({'status': 'failed', 'msg': 'The course you requested is not full'}, status=status.HTTP_404_NOT_FOUND)
 
 
-class UserCourse(generics.ListCreateAPIView):
+class UserCourse(generics.UpdateAPIView):
 
-    def post(self, request, *args, **kwargs):
-        print('THIS IS A BIG ASS TEST', request, request.data)
+    def patch(self, request, *args, **kwargs):
         sms_sid = request.data.get('MessageSid')
         sms_status = request.data.get('MessageStatus')
         user_course_record = UserCourses.objects.get(sms_message_sid=sms_sid)
@@ -113,7 +111,7 @@ class UserCourse(generics.ListCreateAPIView):
             user_course_record.did_text_send = False
         user_course_record.save(update_fields=['did_text_send'])
 
-        return Response({'status': 'complete'})
+        return Response({'status': 'complete'}, status=status.HTTP_204_NO_CONTENT)
 
 
 def validate_phonenumber(phone_number):
