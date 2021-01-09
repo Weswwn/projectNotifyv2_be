@@ -98,9 +98,9 @@ class CourseList(generics.ListCreateAPIView):
         return Response({'status': 'failed', 'msg': 'The course you requested is not full'}, status=status.HTTP_404_NOT_FOUND)
 
 
-class UserCourse(generics.UpdateAPIView):
+class UserCourse(generics.ListCreateAPIView):
 
-    def patch(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         sms_sid = request.data.get('MessageSid')
         sms_status = request.data.get('MessageStatus')
         user_course_record = UserCourses.objects.get(sms_message_sid=sms_sid)
