@@ -57,10 +57,10 @@ def send_sms_to_user(client, phone_number, subject_code, subject_number, section
     try:
         message = client.messages \
             .create(
-                body=f"Hi! This is Project Notify. A spot for {subject_code} {subject_number} {section_number} opened up! Click the link to register: https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-section&dept={subject_code}&course={subject_number}&section={section_number}",
-                from_="2017293373",
+                body=f"Hi! This is UBCCourseTracker. A spot for {subject_code} {subject_number} {section_number} opened up! Click the link to register: https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-section&dept={subject_code}&course={subject_number}&section={section_number}",
+                from_='2017293373',
                 #15005550006
-                status_callback='http://api.ubccourseinfo.com/api/course/usercourse/',
+                status_callback='https://api.ubccoursetracker.com/api/course/usercourse/',
                 to=phone_number
         )
         user_courses_record = UserCourses.objects.get(id=record_id)

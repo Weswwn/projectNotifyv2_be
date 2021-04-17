@@ -26,14 +26,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ***** NEED TO CHANGE BASED OFF OF WHAT FE URL IS *****
-ALLOWED_HOSTS = ['localhost', '23.239.5.219', '127.0.0.1', 'api.ubccoursetracker.com']
+ALLOWED_HOSTS = ['api.twilio.com', 'localhost', '23.239.5.219', '127.0.0.1', 'api.ubccoursetracker.com']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -59,7 +58,7 @@ CELERY_TIMEZONE = 'UTC'
 CELERY_BEAT_SCHEDULE = {
     'task-first': {
         'task': 'automated.tasks.check_courses',
-        'schedule': timedelta(seconds=20)
+        'schedule': timedelta(seconds=10)
     },
 }
 
@@ -67,6 +66,9 @@ CELERY_BEAT_SCHEDULE = {
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
+        # 'utils.api.BrowsableAPIRendererWithoutForms',
+        # 'rest_framework.renderers.JSONRenderer',
+        # 'rest_framework.permissions.IsAdminUser',
         # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ]
 }
@@ -84,8 +86,6 @@ MIDDLEWARE = [
 # ***** NEED TO CHANGE BASED OFF OF WHAT FE URL IS *****
 CORS_ORIGIN_WHITELIST = [
     os.environ.get('CORS_FE_URL'),
-    'localhost',
-    '127.0.0.1',
     'https://5f643cb460ac361d3ca5e81b--sharp-easley-ffdfe9.netlify.app',
     'www.ubccoursetracker.com',
 ]
@@ -168,4 +168,4 @@ STATIC_URL = '/static/'
 
 if os.environ.get('DJANGO_DEVELOPMENT'):
     print('This is development settings')
-    from projectNotifyv2_be.settings_dev import ALLOWED_HOSTS, DATABASES, DEBUG, ALLOWED_HOSTS, CORS_ORIGIN_WHITELIST
+    from projectNotifyv2_be.settings_dev import ALLOWED_HOSTS, DATABASES, DEBUG, ALLOWED_HOSTS, CORS_ORIGIN_WHITELIST, CELERY_BROKER_URL, CELERY_RESULT_BACKEND,DEBUG

@@ -9,14 +9,11 @@ from requests import get
 from bs4 import BeautifulSoup
 
 import phonenumbers
-from phonenumbers import carrier
-from phonenumbers.phonenumberutil import number_type
 
 
 class CourseList(generics.ListCreateAPIView):
     model = Course
     def get_serializer_class(self):
-        print(self.request.method)
         if self.request.method == 'GET':
             return CourseListSerializer
         else:
@@ -24,6 +21,7 @@ class CourseList(generics.ListCreateAPIView):
 
     def get_queryset(self):
         q_set = Course.objects.all();
+        # q_set = Course.objects.filter(usercourses__sms_message_sid__isnull=True, usercourses__did_text_send=False).count()
         return q_set
 
 
@@ -99,6 +97,12 @@ class CourseList(generics.ListCreateAPIView):
 
 
 class UserCourse(generics.ListCreateAPIView):
+    model = UserCourses
+
+    def get(self, request):
+        active_count = UserCourses.objects.filter(sms_message_sid__isnull=True, did_text_send=False).count() + 10
+        total_count = UserCourses.objects.filter(sms_message_sid__isnull=False, did_text_send=True).count() + 100
+        return Response({"activeCount": active_count, "totalCount": total_count}, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
         sms_sid = request.data.get('MessageSid')
@@ -111,13 +115,12 @@ class UserCourse(generics.ListCreateAPIView):
             user_course_record.did_text_send = False
         user_course_record.save(update_fields=['did_text_send'])
 
-        return Response({'status': 'complete'}, status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT, content_type='text/xml')
 
 
 def validate_phonenumber(phone_number):
     try:
         isValid = phonenumbers.is_possible_number(phonenumbers.parse(phone_number, None))
-        print(phonenumbers.parse(phone_number, None), phonenumbers.is_possible_number(phonenumbers.parse(phone_number, None)))
     except Exception as e:
         return False
 
